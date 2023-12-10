@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="UTF-8" />
+    <title>William Aguera - Paciente 360 Teste</title>
+    <base href="/" />
+    <link rel="stylesheet" type="text/css" href="angular-toastr.css" />
+  </head>
+  <body ng-controller="MainController as mainCtrl">
+    <navbar class="navbar">
+      <h4>Paciente 360</h4>
+      <div>
+        <a ui-sref="home">Home</a>
+        <a ui-sref="pessoa">Pessoa</a>
+        <a ui-sref="profissao">Profissão</a>
+      </div>
+    </navbar>
+    <div class="main" ui-view="main"></div>
+  </body>
+</html>

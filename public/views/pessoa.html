@@ -1,0 +1,75 @@
+<div class="form">
+  <h2><span ng-hide="isEditing">Cadastrar</span> <span ng-show="isEditing">Editar</span> Pessoa</h2>
+  <form name="form" class="form__person" ng-submit="addPessoa()">
+    <label for="pessoaNome">Nome:</label>
+    <input type="text" name="pessoaNome" id="pessoaNome" ng-model="pessoa.nome" placeholder="Ex. William" required />
+    <div class="error-message" ng-show="form.pessoaNome.$error.required && form.pessoaNome.$dirty">
+      Campo obrigatório.
+    </div>
+
+    <label for="pessoaNascimento">Data de Nascimento:</label>
+    <input
+      type="text"
+      name="pessoaNascimento"
+      id="pessoaNascimento"
+      ui-mask="99/99/9999"
+      ui-mask-placeholder
+      ui-mask-placeholder-char="_"
+      ng-model="pessoa.dt_nasc"
+      required
+      placeholder="99/99/9999"
+    />
+    <div class="error-message" ng-show="form.pessoaNascimento.$error.required && form.pessoaNascimento.$dirty">
+      Campo obrigatório.
+    </div>
+
+    <label for="pessoaCpf">CPF:</label>
+    <input
+      type="text"
+      id="pessoaCpf"
+      name="pessoaCpf"
+      ui-mask="999.999.999-99"
+      ui-mask-placeholder
+      ui-mask-placeholder-char="_"
+      ng-model="pessoa.cpf"
+      required
+      placeholder="99999999999"
+    />
+    <div class="error-message" ng-show="form.pessoaCpf.$error.required && form.pessoaCpf.$dirty">
+      Campo obrigatório.
+    </div>
+
+    <label for="pessoaTelefone">Telefone:</label>
+    <input
+      type="text"
+      id="pessoaTelefone"
+      name="pessoaTelefone"
+      ui-mask="(99) 999999999"
+      ui-mask-placeholder
+      ui-mask-placeholder-char="_"
+      ng-model="pessoa.telefone"
+      required
+      placeholder="99999999999"
+    />
+    <div class="error-message" ng-show="form.pessoaTelefone.$error.required && form.pessoaTelefone.$dirty">
+      Campo obrigatório.
+    </div>
+
+    <label for="pessoaProfissao">Profissão:</label>
+    <select id="pessoaProfissao" name="pessoaProfissao" ng-model="pessoa.profissao_id" required>
+      <option value="" disabled selected hidden>Selecione</option>
+      <option ng-repeat="profissao in profissoes" value="{{ profissao.id }}">{{ profissao.prof_nome }}</option>
+    </select>
+    <div class="error-message" ng-show="form.pessoaProfissao.$error.required && form.pessoaProfissao.$dirty">
+      Campo obrigatório.
+    </div>
+
+    <label for="pessoaObservacao">Observações:</label>
+    <textarea id="pessoaObservacao" ng-model="pessoa.observacao" placeholder="Ex.: Observação aqui"></textarea>
+
+    <button type="submit" style="width: 200px; margin-left: auto">
+      <span ng-hide="isEditing">Adicionar</span> <span ng-show="isEditing">Salvar</span>
+      Pessoa
+    </button>
+  </form>
+</div>
